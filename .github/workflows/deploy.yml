@@ -43,7 +43,7 @@ jobs:
           script: |
             mkdir -p ~/blog
             cd ~/blog
-            curl -o docker-compose.yml https://raw.githubusercontent.com/${{ github.repository }}/main/docker-compose.yml
+            curl -L https://github.com/${{ github.repository }}/archive/refs/heads/main.tar.gz | tar -xz --strip-components=1
             echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
             docker compose pull
             docker compose up -d
