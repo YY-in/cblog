@@ -17,10 +17,7 @@ services:
       - ./content:/app/content
       - ./static:/app/static
       - ./templates:/app/templates
-      - ./config.yaml:/app/config.yaml
-      - ./config.zh.yaml:/app/config.zh.yaml
-      - ./config.p5r.yaml:/app/config.p5r.yaml
-      - ./config.p5r.zh.yaml:/app/config.p5r.zh.yaml
+      - ./config:/app/config
 
   nginx:
     image: nginx:alpine

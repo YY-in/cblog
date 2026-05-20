@@ -25,13 +25,13 @@ app.secret_key = os.environ.get("SECRET_KEY", "change-me-in-production")
 # ---------------------------------------------------------------------------
 
 def load_config():
-    with open(BASE_DIR / "config.yaml", "r", encoding="utf-8") as f:
+    with open(BASE_DIR / "config" / "config.yaml", "r", encoding="utf-8") as f:
         return yaml.safe_load(f)
 
 
 def load_lang_config(lang: str):
-    """Load language-specific override file (e.g. config.zh.yaml)."""
-    path = BASE_DIR / f"config.{lang}.yaml"
+    """Load language-specific override file (e.g. config/config.zh.yaml)."""
+    path = BASE_DIR / "config" / f"config.{lang}.yaml"
     if path.exists():
         with open(path, "r", encoding="utf-8") as f:
             return yaml.safe_load(f) or {}
@@ -60,14 +60,14 @@ for _lang in SUPPORTED_LANGS:
 
 # Load P5R theme text config (with language support)
 def load_p5r_config():
-    path = BASE_DIR / "config.p5r.yaml"
+    path = BASE_DIR / "config" / "config.p5r.yaml"
     if path.exists():
         with open(path, "r", encoding="utf-8") as f:
             return yaml.safe_load(f) or {}
     return {}
 
 def load_p5r_lang_config(lang: str):
-    path = BASE_DIR / f"config.p5r.{lang}.yaml"
+    path = BASE_DIR / "config" / f"config.p5r.{lang}.yaml"
     if path.exists():
         with open(path, "r", encoding="utf-8") as f:
             return yaml.safe_load(f) or {}
@@ -370,7 +370,7 @@ def page_not_found(e):
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5000,
-            extra_files=[str(BASE_DIR / "config.yaml"),
-                         str(BASE_DIR / "config.zh.yaml"),
-                         str(BASE_DIR / "config.p5r.yaml"),
-                         str(BASE_DIR / "config.p5r.zh.yaml")])
+            extra_files=[str(BASE_DIR / "config" / "config.yaml"),
+                         str(BASE_DIR / "config" / "config.zh.yaml"),
+                         str(BASE_DIR / "config" / "config.p5r.yaml"),
+                         str(BASE_DIR / "config" / "config.p5r.zh.yaml")])
