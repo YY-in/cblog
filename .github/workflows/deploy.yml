@@ -46,14 +46,18 @@ jobs:
             mkdir -p ~/blog
             cd ~/blog
             curl -L -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/${{ github.repository }}/tarball/main | tar -xz --strip-components=1
-            echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
-            if docker compose version >/dev/null 2>&1; then
+            # Setup modern docker-compose v2
+            if [ -f ./docker-compose ]; then
+              DOCKER_COMPOSE="./docker-compose"
+            elif docker compose version >/dev/null 2>&1; then
               DOCKER_COMPOSE="docker compose"
-            elif docker-compose version >/dev/null 2>&1; then
-              DOCKER_COMPOSE="docker-compose"
             else
-              echo "Error: Neither 'docker compose' nor 'docker-compose' found!"
-              exit 1
+              echo "Downloading standalone docker-compose v2..."
+              curl -SL "https://github.com/docker/compose/releases/download/v2.27.0/docker-compose-linux-$(uname -m)" -o ./docker-compose
+              chmod +x ./docker-compose
+              DOCKER_COMPOSE="./docker-compose"
             fi
+            
+            echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
             $DOCKER_COMPOSE pull
             $DOCKER_COMPOSE up -d
