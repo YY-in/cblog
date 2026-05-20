@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   web:
-    image: ghcr.io/YY-in/cblog:latest
+    image: ghcr.io/yy-in/cblog:latest
     build: .
     restart: always
     environment:
