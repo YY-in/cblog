@@ -33,6 +33,8 @@ jobs:
   deploy:
     needs: build-and-push
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Deploy to Server
         uses: appleboy/ssh-action@v1.0.3
@@ -43,7 +45,7 @@ jobs:
           script: |
             mkdir -p ~/blog
             cd ~/blog
-            curl -L https://github.com/${{ github.repository }}/archive/refs/heads/main.tar.gz | tar -xz --strip-components=1
+            curl -L -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/${{ github.repository }}/tarball/main | tar -xz --strip-components=1
             echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
             docker compose pull
             docker compose up -d
