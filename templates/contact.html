@@ -227,26 +227,68 @@ html.light section.bg-gradient-to-r a:hover {
 
 {% block extra_js %}
 <script>
-const phrases = {{ pg.typewriter_phrases | tojson }};
-let pi = 0, ci = 0, del = false;
-function typeLoop() {
-  const w = phrases[pi], el = document.getElementById('typewriter');
-  if (!del) { el.textContent = w.substring(0, ++ci); if (ci === w.length) { del = true; setTimeout(typeLoop, 2000); return; } }
-  else { el.textContent = w.substring(0, --ci); if (ci === 0) { del = false; pi = (pi + 1) % phrases.length; setTimeout(typeLoop, 400); return; } }
-  setTimeout(typeLoop, del ? 50 : 100);
-}
-function copyNode(text) { navigator.clipboard.writeText(text).then(() => { const t = document.getElementById('copy-notification'); t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 2000); }); }
-const ta = document.getElementById('payload-text'), cc = document.getElementById('char-count');
-ta.addEventListener('input', () => cc.textContent = ta.value.length + ' / 500');
-document.getElementById('contact-form').addEventListener('submit', async (e) => {
-  e.preventDefault(); const loading = document.getElementById('form-loading'); loading.classList.remove('hidden');
-  try { const res = await fetch('/api/contact', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(Object.fromEntries(new FormData(e.target))) });
-    const data = await res.json(); loading.classList.add('hidden');
-    if (data.ok) { document.getElementById('success-modal').classList.remove('hidden'); e.target.reset(); cc.textContent = '0 / 500'; }
-    else { document.getElementById('error-message').textContent = data.error || {{ pg.error_unknown | tojson }}; document.getElementById('error-modal').classList.remove('hidden'); }
-  } catch (err) { loading.classList.add('hidden'); document.getElementById('error-message').textContent = {{ pg.error_network | tojson }}; document.getElementById('error-modal').classList.remove('hidden'); }
-});
-function closeModal() { document.getElementById('success-modal').classList.add('hidden'); }
-typeLoop();
+(function() {
+  const phrases = {{ pg.typewriter_phrases | tojson }};
+  let pi = 0, ci = 0, del = false;
+  function typeLoop() {
+    const w = phrases[pi], el = document.getElementById('typewriter');
+    if (!el) return;
+    if (!del) { el.textContent = w.substring(0, ++ci); if (ci === w.length) { del = true; setTimeout(typeLoop, 2000); return; } }
+    else { el.textContent = w.substring(0, --ci); if (ci === 0) { del = false; pi = (pi + 1) % phrases.length; setTimeout(typeLoop, 400); return; } }
+    setTimeout(typeLoop, del ? 50 : 100);
+  }
+  window.copyNode = function(text) {
+    navigator.clipboard.writeText(text).then(() => {
+      const t = document.getElementById('copy-notification');
+      if (t) {
+        t.classList.add('show');
+        setTimeout(() => t.classList.remove('show'), 2000);
+      }
+    });
+  };
+  const ta = document.getElementById('payload-text'), cc = document.getElementById('char-count');
+  if (ta && cc) {
+    ta.addEventListener('input', () => cc.textContent = ta.value.length + ' / 500');
+  }
+  const form = document.getElementById('contact-form');
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const loading = document.getElementById('form-loading');
+      if (loading) loading.classList.remove('hidden');
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(Object.fromEntries(new FormData(e.target)))
+        });
+        const data = await res.json();
+        if (loading) loading.classList.add('hidden');
+        if (data.ok) {
+          const successModal = document.getElementById('success-modal');
+          if (successModal) successModal.classList.remove('hidden');
+          e.target.reset();
+          if (cc) cc.textContent = '0 / 500';
+        } else {
+          const errorMsg = document.getElementById('error-message');
+          const errorModal = document.getElementById('error-modal');
+          if (errorMsg) errorMsg.textContent = data.error || {{ pg.error_unknown | tojson }};
+          if (errorModal) errorModal.classList.remove('hidden');
+        }
+      } catch (err) {
+        if (loading) loading.classList.add('hidden');
+        const errorMsg = document.getElementById('error-message');
+        const errorModal = document.getElementById('error-modal');
+        if (errorMsg) errorMsg.textContent = {{ pg.error_network | tojson }};
+        if (errorModal) errorModal.classList.remove('hidden');
+      }
+    });
+  }
+  window.closeModal = function() {
+    const successModal = document.getElementById('success-modal');
+    if (successModal) successModal.classList.add('hidden');
+  };
+  typeLoop();
+})();
 </script>
 {% endblock %}
