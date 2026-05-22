@@ -37,19 +37,19 @@ footer_links:
     url: "#"
 
 navigation:
-  HOME: "HIDEOUT"
-  ABOUT: "CONFIDANT"
-  PROJECTS: "PALACES"
-  SKILLS: "PERSONAS"
-  CONTACT: "CALLING_CARD"
+  HOME: "HOME"
+  ABOUT: "ABOUT"
+  PROJECTS: "PROJECTS"
+  SKILLS: "SKILLS"
+  CONTACT: "CONTACT"
 
 # URL-based nav lookup (works regardless of language)
 navigation_by_url:
-  "/": "HIDEOUT"
-  "/about": "CONFIDANT"
-  "/projects": "PALACES"
-  "/skills": "PERSONAS"
-  "/contact": "CALLING_CARD"
+  "/": "HOME"
+  "/about": "ABOUT"
+  "/projects": "PROJECTS"
+  "/skills": "SKILLS"
+  "/contact": "CONTACT"
 
 owner:
   alias: "JOKER"
@@ -67,7 +67,7 @@ pages:
     hero_line1: "TAKE"
     hero_line2: "YOUR HEART"
     btn_primary: "BEGIN_HEIST"
-    btn_secondary: "CALLING_CARD"
+    btn_secondary: "DOWNLOAD_CV"
     badge_error: "DISTORTION"
     avatar_id: "CODENAME: JOKER"
     alias: "JOKER"

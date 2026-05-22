@@ -36,18 +36,18 @@ footer_links:
     url: "#"
 
 navigation:
-  HOME: "秘密基地"
-  ABOUT: "协助者"
-  PROJECTS: "殿堂"
-  SKILLS: "人格面具"
-  CONTACT: "预告信"
+  HOME: "首页"
+  ABOUT: "关于"
+  PROJECTS: "项目"
+  SKILLS: "技能"
+  CONTACT: "联系"
 
 navigation_by_url:
-  "/": "秘密基地"
-  "/about": "协助者"
-  "/projects": "殿堂"
-  "/skills": "人格面具"
-  "/contact": "预告信"
+  "/": "首页"
+  "/about": "关于"
+  "/projects": "项目"
+  "/skills": "技能"
+  "/contact": "联系"
 
 owner:
   alias: "JOKER"
@@ -65,7 +65,7 @@ pages:
     hero_line1: "夺取"
     hero_line2: "你的心"
     btn_primary: "开始窃心"
-    btn_secondary: "预告信"
+    btn_secondary: "下载简历"
     badge_error: "扭曲"
     avatar_id: "代号: JOKER"
     alias: "JOKER"
