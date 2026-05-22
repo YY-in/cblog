@@ -29,6 +29,54 @@
     return seconds + 's';
   }
 
+  function injectStyles() {
+    var id = 'visitor-stats-styles';
+    if (document.getElementById(id)) return;
+    var style = document.createElement('style');
+    style.id = id;
+    style.textContent = [
+      '#visitor-stats-hud {',
+      '  position: fixed;',
+      '  bottom: 40px;',
+      '  left: 16px;',
+      '  z-index: 9999;',
+      '  background: rgba(19, 19, 24, 0.8);',
+      '  border-top: 2px solid #00d4ff;',
+      '  padding: 4px 10px;',
+      '  font-family: "Share Tech Mono", monospace;',
+      '  font-size: 9px;',
+      '  color: #00d4ff;',
+      '  letter-spacing: 0.05em;',
+      '  display: flex;',
+      '  align-items: center;',
+      '  gap: 8px;',
+      '  backdrop-filter: blur(4px);',
+      '  user-select: none;',
+      '  transition: background 0.3s, border-color 0.3s, color 0.3s;',
+      '}',
+      'html.light #visitor-stats-hud {',
+      '  background: rgba(250, 247, 243, 0.8);',
+      '  border-top: 2px solid #d92323;',
+      '  color: #0d0d0d;',
+      '}',
+      '#visitor-stats-hud .close-btn {',
+      '  cursor: pointer;',
+      '  margin-left: 6px;',
+      '  color: #00d4ff;',
+      '  opacity: 0.6;',
+      '  font-weight: bold;',
+      '  transition: opacity 0.15s, color 0.3s;',
+      '}',
+      '#visitor-stats-hud .close-btn:hover {',
+      '  opacity: 1;',
+      '}',
+      'html.light #visitor-stats-hud .close-btn {',
+      '  color: #d92323;',
+      '}'
+    ].join('\n');
+    document.head.appendChild(style);
+  }
+
   function init() {
     var now = Date.now();
     var path = window.location.pathname;
@@ -58,49 +106,18 @@
     }
 
     save(data);
-
-    // Theme detection
-    var light = document.documentElement.classList.contains('light');
-    var accentColor = light ? '#d92323' : '#00d4ff';
-    var bgColor = light ? 'rgba(250,247,243,0.8)' : 'rgba(19,19,24,0.8)';
-    var textColor = light ? '#0d0d0d' : '#00d4ff';
+    injectStyles();
 
     // Build HUD widget
     var widget = document.createElement('div');
     widget.id = 'visitor-stats-hud';
-    widget.style.cssText = [
-      'position:fixed',
-      'bottom:40px',
-      'left:16px',
-      'z-index:9999',
-      'background:' + bgColor,
-      'border-top:2px solid ' + accentColor,
-      'padding:4px 10px',
-      'font-family:"Share Tech Mono",monospace',
-      'font-size:9px',
-      'color:' + textColor,
-      'letter-spacing:0.05em',
-      'display:flex',
-      'align-items:center',
-      'gap:8px',
-      'backdrop-filter:blur(4px)',
-      'user-select:none'
-    ].join(';');
 
     var label = document.createElement('span');
     label.id = 'visitor-stats-label';
 
     var closeBtn = document.createElement('span');
+    closeBtn.className = 'close-btn';
     closeBtn.textContent = 'X';
-    closeBtn.style.cssText = [
-      'cursor:pointer',
-      'margin-left:6px',
-      'color:' + accentColor,
-      'opacity:0.6',
-      'font-weight:bold'
-    ].join(';');
-    closeBtn.addEventListener('mouseenter', function () { closeBtn.style.opacity = '1'; });
-    closeBtn.addEventListener('mouseleave', function () { closeBtn.style.opacity = '0.6'; });
     closeBtn.addEventListener('click', function () {
       widget.style.display = widget.style.display === 'none' ? 'flex' : 'none';
     });
