@@ -1539,6 +1539,7 @@ if(sessionStorage.getItem('gate-transition')==='1'){
     if (!link) return;
     var href = link.getAttribute('href');
     if (!href || href === '#' || href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('?')) return;
+    if (href.indexOf('.pdf') !== -1 || href.startsWith('/static/') || link.hasAttribute('download')) return;
     if (href === window.location.pathname) return;
     e.preventDefault();
     spaNavigate(href);
