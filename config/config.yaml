@@ -28,7 +28,7 @@ gate:
 owner:
   name: "Zhihao Yin"
   alias: "YIN_PROTOCOL"
-  bio: "IoT Engineering → HCI @ Nottingham → Game Dev. AI changed the game — now I build full-cycle projects with AI-augmented workflows. Hardware taught me systems, HCI taught me people, games are where both collide."
+  bio: "M.Sc. in Human-Computer Interaction (HCI) with a B.Eng. in Internet of Things (IoT). Engineering rigor meets human-centered thinking. Powered by an 'AI Native' mindset and relentless execution. Proficient in full-stack R&D, combining strict user research logic, high resilience under pressure, and the agility to tackle cross-disciplinary breakthroughs."
   avatar: "/static/images/avatar.jpg"
   roles:
     - "GAME_DEVELOPER"
