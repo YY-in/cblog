@@ -18,10 +18,16 @@
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   object-fit: cover;
+  object-position: center top;
   pointer-events: none;
   z-index: 2;
   mix-blend-mode: screen;
   transition: opacity 0.5s;
+}
+
+.lg\:col-span-5.group.bg-neutral-900 img {
+  object-fit: cover !important;
+  object-position: center top !important;
 }
 .glitch-edge.ge-pink {
   filter: grayscale(1) brightness(0.55) contrast(15) sepia(1) hue-rotate(300deg) saturate(8);
