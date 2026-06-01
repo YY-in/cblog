@@ -7,12 +7,16 @@ summary: AI-driven commercial multiplayer battle game on Roblox. Custom MCP pipe
 thumbnail: /static/images/featured.jpg
 tags: Roblox, Luau, AI Workflow, MCP, Physical Blast
 featured: true
-btn1_icon: smart_toy
-btn1_label: AI_FLOW
-btn2_icon: code
-btn2_label: SOURCE
+btn1_icon: sports_esports
+btn1_label: PLAY_GAME
+btn2_icon: smart_toy
+btn2_label: AI_FLOW
 engine: Roblox // AI Pipeline
 order: 1
+links:
+  - label: "PLAY ON ROBLOX // 体验游戏"
+    url: "https://www.roblox.com/games/116478241859511/BoomBounce"
+
 
 ## Overview
 

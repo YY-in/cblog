@@ -7,12 +7,16 @@ summary: AI驱动的Roblox多人商业化对战游戏。自研MCP管线打通LLM
 thumbnail: /static/images/featured.jpg
 tags: Roblox, Luau, AI工作流, MCP, 物理爆破
 featured: true
-btn1_icon: smart_toy
-btn1_label: AI工作流
-btn2_icon: code
-btn2_label: 源码
+btn1_icon: sports_esports
+btn1_label: 体验游戏
+btn2_icon: smart_toy
+btn2_label: AI工作流
 engine: Roblox // AI管线
 order: 1
+links:
+  - label: "体验游戏 // PLAY ON ROBLOX"
+    url: "https://www.roblox.com/games/116478241859511/BoomBounce"
+
 
 ## 概述
 
