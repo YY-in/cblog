@@ -14,19 +14,17 @@ btn2_label: AI_FLOW
 engine: Roblox // AI Pipeline
 order: 1
 video_url: https://www.youtube.com/embed/sXT-AE-Y6SM?start=1478
-links:
-  - label: "PLAY ON ROBLOX // 体验游戏"
-    url: "https://www.roblox.com/games/116478241859511/BoomBounce"
+links: PLAY ON ROBLOX // 体验游戏|https://www.roblox.com/games/116478241859511/BoomBounce
 
 
 ## Overview
 
-***Bomb Blind Shot*** is a **commercial multiplayer physical blast combat game** launched on the Roblox platform. In this project, we designed a unique gameplay loop based on "acoustic prediction and physical blind-spot blasting" while thoroughly implementing an **"AI Native" end-to-end game R&D pipeline**. Leveraging our custom MCP (Model Context Protocol) pipeline service and AI-generated asset workflows, we slashed the development lifecycle of a highly polished commercial game by **50%**, demonstrating that a **tiny 2-person team** could independently handle the entire lifecycle — from ideation, dual-end coding, art production, and monetization to long-term live ops.
+***Boom Bounce*** (originally *Bomb Blind Shot*) is a **commercial multiplayer physical blast combat game** launched on the Roblox platform. In this project, we designed a unique gameplay loop based on "strategic judgment and physical blind-spot blasting" while thoroughly implementing an **"AI Native" end-to-end game R&D pipeline**. Leveraging our custom MCP (Model Context Protocol) pipeline service and AI-generated asset workflows, we slashed the development lifecycle of a highly polished commercial game by **50%**, demonstrating that a **tiny 2-person team** could independently handle the entire lifecycle — from ideation, dual-end coding, art production, and monetization to long-term live ops.
 
 ## Core Gameplay & Mechanics
 
 * **Physical Blasting & Obscured Sightlines**: The combat arenas are filled with highly destructible geometry forming obstacles and blind spots. Direct player vision is heavily obscured by dense fog, smoke screens, and heavy cover.
-* **Acoustic Prediction & Blind Firing**: Players must rely on 3D spatial audio (listening for footsteps, rolling bomb sound waves, and collapsing obstacles) to locate enemies, utilizing physical parabolic trajectory calculations to launch bombs blindly and eliminate opponents.
+* **Strategic Judgment & Blind Firing**: Players must rely on a deep understanding of map topology, psychological anticipation of enemy movement patterns, and physical parabolic trajectory calculations to execute blind shots and dominate combat zones.
 * **Dynamic Environmental Deformation**: Each explosion permanently alters the map's topology and cover distribution, forcing players to constantly adapt their tactical movements.
 
 ## AI-Augmented Pipeline
@@ -62,7 +60,7 @@ As a fully self-sustained commercial indie game, we designed and implemented a c
 
 ## Streamer & Community Buzz
 
-*BoomBounce* has not only captured the hearts of competitive players but has also sparked a massive multiplayer craze in the international Roblox streamer community, showcasing excellent organic viral reach:
+*Boom Bounce* has not only captured the hearts of competitive players but has also sparked a massive multiplayer craze in the international Roblox streamer community, showcasing excellent organic viral reach:
 * **International Influencer Gameplay Showcase**: Highly popular Indonesian Roblox gaming YouTuber **[JUST EZZA](https://www.youtube.com/@ZAMORAEZZA)** (with a million-level subscriber fanbase) featured the game in a massive multiplayer livestream (Watch the highlights at [Roblox Boom Bounce Indonesia Gameplay Stream](https://www.youtube.com/watch?v=sXT-AE-Y6SM&t=1478s)).
-* **Highly Entertaining & Viral Party Dynamics**: Within the dense blind spots and destructible physics arenas, streamers relied on 3D spatial acoustics to tactically predict and outsmart each other. The chaotic physical chain reactions and unpredictable collapses created incredible comedic tension and spectacular stream highlights, driving high community retention, fan UGC, and stellar reviews.
+* **Highly Entertaining & Viral Party Dynamics**: Within the dense blind spots and destructible physics arenas, streamers relied on intense psychological anticipation and spatial trajectory calculations to tactically predict and outsmart each other. The chaotic physical chain reactions and unpredictable collapses created incredible comedic tension and spectacular stream highlights, driving high community retention, fan UGC, and stellar reviews.
 

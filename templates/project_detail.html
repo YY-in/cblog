@@ -108,10 +108,15 @@ html.light .bg-\[\#c70057\] { background-color: var(--p5-red, #d92323) !importan
 
       {% if meta.get('links') %}
       <div class="mt-8 flex flex-col gap-4">
-        {% for link in meta.links if meta.links is iterable and meta.links is not string %}
-        <a href="{{ link.url }}" target="_blank" class="bg-primary-container text-on-primary font-bold px-6 py-3 uppercase text-sm clip-notch-tr hover:brightness-110 active:scale-95 transition-all text-center">
-          {{ link.label }}
-        </a>
+        {% set link_items = [meta.links] if meta.links is string else meta.links %}
+        {% for raw_link in link_items %}
+          {% if '|' in raw_link %}
+            {% set parts = raw_link.split('|') %}
+            <a href="{{ parts[1].strip() }}" target="_blank" class="bg-[#c70057] text-white font-bold px-6 py-3 uppercase text-sm clip-notch-tr hover:brightness-110 active:scale-95 transition-all text-center no-underline shadow-[4px_4px_0px_rgba(255,45,120,0.3)] hover:shadow-none flex items-center justify-center gap-2">
+              <span class="material-symbols-outlined text-sm">sports_esports</span>
+              <span>{{ parts[0].strip() }}</span>
+            </a>
+          {% endif %}
         {% endfor %}
       </div>
       {% endif %}
