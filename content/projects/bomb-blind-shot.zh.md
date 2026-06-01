@@ -27,11 +27,11 @@ links: 体验游戏 // PLAY ON ROBLOX|https://www.roblox.com/games/1164782418595
 * **战略判断与轨迹盲射**：玩家必须依靠对地图拓扑结构的深刻理解、心理学层面的对手轨迹推演以及物理弹道预判，在完全的视线盲区中制定投掷决策与爆破策略。
 * **动态环境形变**：每一次爆炸都会永久改变地图的拓扑结构与视线盲区分布，迫使玩家不断调整战术和掩体依赖。
 
-![游戏实机对战与动态可破坏环境](/static/images/boombounce-gameplay.jpg)
+![游戏实机对战与动态可破坏环境](/static/images/card-boombounce.jpg)
 
 ## AI 增强研发管线 (AI-Augmented Pipeline)
 
-我们在本项目中拒绝使用 AI 作为被动的代码辅助工具，而是将其作为**主动的编辑器协处理器（Exoskeleton）**：
+我们在本项目中使用 AI 作为被动的代码辅助工具：
 
 ### 1. 自研 Roblox MCP Server
 我们设计并实现了一套运行于本地的 MCP (Model Context Protocol) 管道服务，打通了 LLM 智能代理（如 Claude Code）与 Roblox Studio 的双向通信接口。

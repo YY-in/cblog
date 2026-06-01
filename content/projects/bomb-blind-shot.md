@@ -31,7 +31,7 @@ links: PLAY ON ROBLOX // 体验游戏|https://www.roblox.com/games/1164782418595
 
 ## AI-Augmented Pipeline
 
-Rather than treating AI as a passive auto-complete coder, we designed it as an **active editor co-processor (exoskeleton)**:
+Rather than treating AI as a passive auto-complete coder, designed it as an **active editor co-processor (exoskeleton)**:
 
 ### 1. Custom Roblox MCP Server
 We implemented a local MCP (Model Context Protocol) pipe service enabling bi-directional communication between LLM agents (such as Claude Code) and Roblox Studio.
