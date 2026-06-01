@@ -27,6 +27,8 @@ links: PLAY ON ROBLOX // 体验游戏|https://www.roblox.com/games/1164782418595
 * **Strategic Judgment & Blind Firing**: Players must rely on a deep understanding of map topology, psychological anticipation of enemy movement patterns, and physical parabolic trajectory calculations to execute blind shots and dominate combat zones.
 * **Dynamic Environmental Deformation**: Each explosion permanently alters the map's topology and cover distribution, forcing players to constantly adapt their tactical movements.
 
+![In-game combat and dynamically destructible environment](/static/images/boombounce-gameplay.jpg)
+
 ## AI-Augmented Pipeline
 
 Rather than treating AI as a passive auto-complete coder, we designed it as an **active editor co-processor (exoskeleton)**:
@@ -53,6 +55,8 @@ To optimize commercial conversion rates and ensure highly satisfying game UX, we
     * **Title & Badge Collection Matrix**: Created a gamified title collection with clean rarity tiering (Common, Rare, Epic, Legendary), locking indicators, and satisfying toggle switches to fuel player collection goals.
 * **Daily & Weekly Quest Interface (Quest System)**: Crafted a clipboard-themed Quest log utilizing dynamic progress gauges (e.g., 8/20, 40% completion state), visual gold Pirate Coin rewards, and prominent high-contrast "Claim" call-to-actions, establishing a strong daily retention loop.
 * **Immersive Skin Shop & Economy (Shop UI)**: Integrated clean monetization cards with glowing rarity-coded backgrounds (Green, Blue, Purple, Gold) and interactive gold coin displays, showcasing unlock states and stimulating microtransactions.
+
+![Figma High-Fidelity UI/UX & Interaction Design Prototypes](/static/images/boombounce-figma-design.png)
 
 ## Monetization & Live Operations
 
