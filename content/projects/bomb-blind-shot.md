@@ -13,6 +13,7 @@ btn2_icon: smart_toy
 btn2_label: AI_FLOW
 engine: Roblox // AI Pipeline
 order: 1
+video_url: https://www.youtube.com/embed/sXT-AE-Y6SM?start=1478
 links:
   - label: "PLAY ON ROBLOX // 体验游戏"
     url: "https://www.roblox.com/games/116478241859511/BoomBounce"

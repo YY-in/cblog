@@ -61,6 +61,9 @@ html.light .bg-\[\#c70057\] { background-color: var(--p5-red, #d92323) !importan
   <section class="grid grid-cols-1 gap-4">
     <div class="relative bg-surface-container-low p-2 clip-card border-r-4 border-secondary-container/50">
       <div class="relative aspect-video overflow-hidden bg-black">
+        {% if 'youtube.com' in meta.video_url or 'youtu.be' in meta.video_url %}
+        <iframe class="w-full h-full object-contain" src="{{ meta.video_url }}" title="Game Video Preview" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        {% else %}
         <video id="project-video" class="w-full h-full object-contain" controls preload="metadata"
                poster="{{ meta.get('thumbnail', '') }}">
           <source src="{{ meta.video_url }}" type="video/mp4"/>
@@ -69,6 +72,7 @@ html.light .bg-\[\#c70057\] { background-color: var(--p5-red, #d92323) !importan
         <div class="absolute bottom-4 left-4 bg-black/80 p-2 border-l-2 border-primary-container font-label text-[10px] text-primary-container pointer-events-none" id="video-label">
           {{ pdpg.video_label }}
         </div>
+        {% endif %}
       </div>
     </div>
   </section>
@@ -92,10 +96,11 @@ html.light .bg-\[\#c70057\] { background-color: var(--p5-red, #d92323) !importan
         <span class="w-8 h-1 bg-secondary-container"></span> {{ pdpg.specs_title }}
       </h3>
       <div class="grid grid-cols-1 gap-2">
-        {% for tag in meta.tags if meta.tags is iterable and meta.tags is not string %}
+        {% set tag_list = meta.tags.split(',') if meta.tags is string else meta.tags %}
+        {% for tag in tag_list %}
         <div class="bg-surface-container p-4 flex justify-between items-center border-l-4 border-secondary-container clip-notch-tr">
           <span class="font-label text-sm opacity-60">{{ pdpg.tech_prefix }}{{ loop.index }}</span>
-          <span class="font-label text-secondary-container font-bold">{{ tag | upper }}</span>
+          <span class="font-label text-secondary-container font-bold">{{ tag.strip() | upper }}</span>
         </div>
         {% endfor %}
       </div>
