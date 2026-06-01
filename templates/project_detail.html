@@ -52,6 +52,21 @@ html.light .bg-\[\#c70057\] { background-color: var(--p5-red, #d92323) !importan
           </div>
           {% endif %}
         </div>
+
+        {% if meta.get('links') %}
+        <div class="mt-8 flex flex-wrap gap-4 border-t border-black/10 pt-6">
+          {% set link_items = [meta.links] if meta.links is string else meta.links %}
+          {% for raw_link in link_items %}
+            {% if '|' in raw_link %}
+              {% set parts = raw_link.split('|') %}
+              <a href="{{ parts[1].strip() }}" target="_blank" class="bg-[#c70057] text-white font-bold px-8 py-3.5 uppercase text-sm clip-notch-tr hover:brightness-110 active:scale-95 transition-all text-center no-underline shadow-[4px_4px_0px_rgba(255,45,120,0.3)] hover:shadow-none flex items-center gap-2 inline-flex">
+                <span class="material-symbols-outlined text-sm">sports_esports</span>
+                <span>{{ parts[0].strip() }}</span>
+              </a>
+            {% endif %}
+          {% endfor %}
+        </div>
+        {% endif %}
       </div>
     </div>
   </header>
@@ -106,20 +121,7 @@ html.light .bg-\[\#c70057\] { background-color: var(--p5-red, #d92323) !importan
       </div>
       {% endif %}
 
-      {% if meta.get('links') %}
-      <div class="mt-8 flex flex-col gap-4">
-        {% set link_items = [meta.links] if meta.links is string else meta.links %}
-        {% for raw_link in link_items %}
-          {% if '|' in raw_link %}
-            {% set parts = raw_link.split('|') %}
-            <a href="{{ parts[1].strip() }}" target="_blank" class="bg-[#c70057] text-white font-bold px-6 py-3 uppercase text-sm clip-notch-tr hover:brightness-110 active:scale-95 transition-all text-center no-underline shadow-[4px_4px_0px_rgba(255,45,120,0.3)] hover:shadow-none flex items-center justify-center gap-2">
-              <span class="material-symbols-outlined text-sm">sports_esports</span>
-              <span>{{ parts[0].strip() }}</span>
-            </a>
-          {% endif %}
-        {% endfor %}
-      </div>
-      {% endif %}
+
     </div>
 
     <!-- Main Content -->
