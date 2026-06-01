@@ -58,3 +58,10 @@ links:
 | 团队规模 | 2人 (全栈开发与商业运营) |
 | 开发栈 | Roblox Studio / Luau / 自研 MCP Server |
 | 商业化机制 | 通行证 (Gamepasses) / 皮肤内购 / 弹道特效 |
+
+## 玩家生态与主播联机热潮 (Streamer & Community Buzz)
+
+《炸弹盲射》（BoomBounce）不仅深受竞技玩家喜爱，还在海外游戏主播社区中引发了联机热潮，展现出极佳的自然传播属性：
+* **海外头部主播直播推荐**：印尼头部 Roblox 游戏网红主播 **[JUST EZZA](https://www.youtube.com/@ZAMORAEZZA)**（百万粉丝级）在其直播实况中对游戏进行了深度联机游玩（视频详见：[Roblox Boom Bounce Indonesia 联机实况](https://www.youtube.com/watch?v=sXT-AE-Y6SM&t=1478s)）。
+* **极具娱乐性与节目效果**：在视野完全受限的爆破盲区里，主播们通过 3D 空间音频互相推演预判，每一次由物理碰撞引发的随机爆破和连锁倒塌都带来了极高的戏剧张力，在社区玩家与粉丝群中掀起了热烈的二次创作与传播讨论，极大地论证了该游戏的高社交娱乐价值与商业成色。
+

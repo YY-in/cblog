@@ -58,3 +58,10 @@ As a fully self-sustained commercial indie game, we designed and implemented a c
 | Team Size | 2 Players (Full-stack dev & live operations) |
 | Tech Stack | Roblox Studio / Luau / Custom MCP Server |
 | Monetization | Lobby Gamepasses / Cosmetic Skins / Particle Trails |
+
+## Streamer & Community Buzz
+
+*BoomBounce* has not only captured the hearts of competitive players but has also sparked a massive multiplayer craze in the international Roblox streamer community, showcasing excellent organic viral reach:
+* **International Influencer Gameplay Showcase**: Highly popular Indonesian Roblox gaming YouTuber **[JUST EZZA](https://www.youtube.com/@ZAMORAEZZA)** (with a million-level subscriber fanbase) featured the game in a massive multiplayer livestream (Watch the highlights at [Roblox Boom Bounce Indonesia Gameplay Stream](https://www.youtube.com/watch?v=sXT-AE-Y6SM&t=1478s)).
+* **Highly Entertaining & Viral Party Dynamics**: Within the dense blind spots and destructible physics arenas, streamers relied on 3D spatial acoustics to tactically predict and outsmart each other. The chaotic physical chain reactions and unpredictable collapses created incredible comedic tension and spectacular stream highlights, driving high community retention, fan UGC, and stellar reviews.
+
