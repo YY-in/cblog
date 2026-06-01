@@ -45,6 +45,16 @@ Established a standardized generation and fine-tuning pipeline utilizing Midjour
 * **In-Game UI & Special Effect Textures**: The complete suite of skill icons, item textures, and particle explosion sheets were synthesized by AI and automatically converted into seamless texture atlases.
 * **Storefront & Promotional Art**: High-converting storefront cover banners, lobby concept art, and badge/achievement icons were rendered by AI, color-corrected, and deployed directly.
 
+### 3. Network Synchronization & High-Overhead Physics Optimization
+
+Frequent physical explosions and large-scale destructible environments introduce massive server replication overhead and client-side rendering pressure. To sustain a solid **60 FPS** in a fast-paced multiplayer combat environment on Roblox, we implemented a sophisticated networking and physics optimization architecture:
+
+* **Dynamic Network Ownership Allocation**: Upon throwing or launching a bomb, the server dynamically transfers the projectile instance's `Network Ownership` to the launching player's client. The client performs real-time high-fidelity physics calculations and renders instantaneous smooth trajectories, drastically offloading the server's physics engine and eliminating replication jitter.
+* **Client-Side Prediction & Server-Side Authority (CPSV)**:
+    * **Client-Side Visual Prediction**: When an explosion occurs, the client immediately predicts and renders visual-only particle feedback, local shrapnel effects, and cover breaks to guarantee zero-latency responsiveness.
+    * **Server-Side Authoritative Validation**: Critical actions—such as blast geometry partitioning, cover destruction, and player damage—remain strictly authoritative on the server. The server verifies the blast location using fast Raycast and AABB bounding box collision tests to prevent rogue clients from spoofing impact points.
+* **Spaced-Frame Debris Reclamation (Spaced Debris System)**: To prevent a physics calculation avalanche when thousands of high-velocity fragments flood the engine, we developed a spaced-frame garbage collection scheduler. Leveraging Roblox's `Debris` service and co-routine pacing, debris instances undergo view-frustum culling and are queued for destruction across multiple subsequent frames, smoothing out instantaneous CPU spikes.
+
 ## Interaction & UI/UX Design (Figma to Roblox Pipeline)
 
 To optimize commercial conversion rates and ensure highly satisfying game UX, we designed and implemented a full suite of high-fidelity, high-engagement user interfaces in Figma, completely translated into Roblox's dynamic screen layouts:

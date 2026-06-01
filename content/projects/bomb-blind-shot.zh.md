@@ -45,6 +45,16 @@ links: 体验游戏 // PLAY ON ROBLOX|https://www.roblox.com/games/1164782418595
 * **游戏内 UI & 特效贴图**：全套技能图标、道具贴图、爆炸粒子贴图均由 AI 自动生成并进行无缝图化处理。
 * **商业宣发与商店资产**：Roblox 商店高转化率的封面大图、大厅背景海报、徽章勋章（Badges）均由 AI 渲染后经过色彩矫正直接交付。
 
+### 3. 多人网络同步与高开销物理优化 (Network Ownership & Physics Replication)
+
+高频次的物理爆破与大范围几何体可破坏场景会产生极高的计算开销。为了在 Roblox 平台的多人联机环境下保持 **60 FPS** 满帧运行，我们设计并落地了一套极富工程含金量的物理性能与网络优化方案：
+
+* **动态 Network Ownership（网络所有权）分配**：对于玩家发射/投掷的炸弹，我们通过 Luau 脚本在发射瞬间将其实例的 `Network Ownership` 动态移交给发射者客户端。由发射者客户端进行本地的高频弹道物理模拟与无延迟轨迹呈现，大幅降低了服务器在物理引擎上的开销，且避免了客户端的物理延迟漂移。
+* **客户端视觉预测与服务端权威校验 (Client Prediction & Server Validation)**：
+    * **客户端预测**：爆破发生时，爆破方客户端立即在本地先行渲染爆炸粒子、碎屑弹飞效果及掩体破损的视觉实例，提供极致丝滑的实时视觉反馈（Zero-Latency Visual Feedback）。
+    * **服务端权威校验**：真实的伤害判定、掩体结构受损（几何体切分/销毁）以及残骸碎片生成由服务端计算权威掌控。服务端进行物理射线包围盒检测（Raycast/AABB Validation）与时间戳防作弊核验，防止非法客户端伪造爆炸点。
+* **分帧延迟残骸销毁 (Debris System with Spaced-Frame Deletion)**：为了防止短时间内大量残骸实例（Physics Debris Parts）涌入物理引擎导致帧率雪崩，我们自研了一套基于 `Debris Service` 的**分帧协同调度器（Co-routine spaced destroyer）**。通过对碎屑进行视距裁剪与分帧队列销毁，将销毁开销平摊到后续的多个渲染帧中，成功消除了高频大范围爆破时的瞬时卡顿（Lag Spikes）。
+
 ## 交互设计与高保真原型 (Figma UI/UX & Interaction Design)
 
 为了在 Roblox 平台上实现一流的视觉品质与极其流畅的变现体验，我们使用 Figma 独立设计了全套高保真 UI 系统，并成功在 Roblox Studio 中进行了像素级落地：
