@@ -4,7 +4,7 @@ status: LIVE
 date: 2026-01
 color: "#ff2d78"
 summary: AI-driven commercial multiplayer battle game on Roblox. Custom MCP pipeline linking LLM with editor, 100% AI-generated art assets, cutting development cycle by 50%.
-thumbnail: /static/images/featured.jpg
+thumbnail: /static/images/card-boombounce.jpg
 tags: Roblox, Luau, AI Workflow, MCP, Physical Blast
 featured: true
 btn1_icon: sports_esports

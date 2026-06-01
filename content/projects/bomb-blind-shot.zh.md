@@ -4,7 +4,7 @@ status: 已上线
 date: 2026-01
 color: "#ff2d78"
 summary: AI驱动的Roblox多人商业化对战游戏。自研MCP管线打通LLM与编辑器，美术资产AI全自动生成，游戏研发与运营周期缩短50%。
-thumbnail: /static/images/featured.jpg
+thumbnail: /static/images/card-boombounce.jpg
 tags: Roblox, Luau, AI工作流, MCP, 物理爆破
 featured: true
 btn1_icon: sports_esports
