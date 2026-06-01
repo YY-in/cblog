@@ -106,24 +106,16 @@ html.light .cut-corner-br h4[style] {
 html.light .cut-corner-br h4[style] .material-symbols-outlined {
   color: #fff !important;
 }
-/* Skill names: bold black */
-html.light .cut-corner-br li span { color: #0d0d0d !important; font-weight: 600 !important; }
-/* Level labels: gold */
-html.light .cut-corner-br li span[style*="color"] { color: #e8c840 !important; font-weight: 700 !important; }
-/* Progress bar track: visible border */
-html.light .cut-corner-br .bg-surface-container-highest {
-  background: rgba(230,25,25,0.08) !important;
-  border: 1px solid rgba(230,25,25,0.15) !important;
+/* Skill names in light mode: solid black */
+html.light .cut-corner-br li span.font-bold {
+  color: #0d0d0d !important;
+  font-weight: 700 !important;
 }
-/* Progress bar fill: all red, segmented */
-html.light .cut-corner-br .segmented-bar-bg[style],
-html.light .segmented-bar-bg {
-  background-color: #e61919 !important;
+/* Skill description in light mode: dark grey */
+html.light .cut-corner-br li p {
+  color: #444 !important;
+  border-left-color: rgba(230,25,25,0.25) !important;
 }
-/* Second column bars: gold accent */
-html.light .cut-corner-br:nth-child(2) .segmented-bar-bg[style] { background-color: #e8c840 !important; }
-/* Third column bars: dark red */
-html.light .cut-corner-br:nth-child(3) .segmented-bar-bg[style] { background-color: #8b0000 !important; }
 
 /* --- Tools grid: clean P5R treatment --- */
 html.light .hover\:bg-\[\#f5e642\]\/5:hover {
@@ -254,23 +246,25 @@ html.light .fixed.pointer-events-none.opacity-20.font-label { display: none !imp
 
     <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-3 gap-4">
       {% for col in pg.columns %}
-      <div class="bg-surface-container-low p-6 border-t-4 cut-corner-br" style="border-top-color: {{ col.color }};">
-        <h4 class="font-headline text-sm tracking-widest mb-6 flex items-center gap-2" style="color: {{ col.color }};">
-          <span class="material-symbols-outlined text-sm">{{ col.icon }}</span> {{ col.title }}
-        </h4>
-        <ul class="space-y-6 font-label text-xs">
-          {% for skill in col.skills %}
-          <li class="space-y-1 group">
-            <div class="flex justify-between items-center">
-              <span class="transition-colors" style="--hover-color: {{ col.color }};">{{ skill.name }}</span>
-              <span style="color: {{ col.color }};">[{{ pg.lvl_prefix }} {{ skill.level }}]</span>
-            </div>
-            <div class="h-3 w-full bg-surface-container-highest relative overflow-hidden">
-              <div class="h-full animate-system-fill segmented-bar-bg text-[#131318]" style="width: {{ skill.pct }}%; background-color: {{ col.color }};"></div>
-            </div>
-          </li>
-          {% endfor %}
-        </ul>
+      <div class="bg-surface-container-low p-6 border-t-4 cut-corner-br flex flex-col justify-between" style="border-top-color: {{ col.color }};">
+        <div>
+          <h4 class="font-headline text-sm tracking-widest mb-6 flex items-center gap-2" style="color: {{ col.color }};">
+            <span class="material-symbols-outlined text-sm">{{ col.icon }}</span> {{ col.title }}
+          </h4>
+          <ul class="space-y-6 font-label text-xs">
+            {% for skill in col.skills %}
+            <li class="space-y-1.5 group">
+              <div class="flex justify-between items-center">
+                <span class="font-bold text-white transition-colors group-hover:text-white" style="--hover-color: {{ col.color }};">{{ skill.name }}</span>
+                <span class="px-1.5 py-0.5 text-[8px] font-bold border tracking-widest uppercase" style="color: {{ col.color }}; border-color: {{ col.color }}40; background-color: {{ col.color }}10;">{{ skill.tag }}</span>
+              </div>
+              <p class="text-[10px] text-zinc-400 font-body leading-relaxed pl-2 border-l" style="border-left-color: {{ col.color }}30;">
+                {{ skill.desc }}
+              </p>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
       </div>
       {% endfor %}
     </div>

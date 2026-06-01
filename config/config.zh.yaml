@@ -137,31 +137,31 @@ pages:
         icon: "sports_esports"
         color: "#ff2d78"
         skills:
-          - { name: "Unity / C#", level: 9, pct: 90 }
-          - { name: "游戏AI (FSM)", level: 8, pct: 80 }
-          - { name: "VR / MR (Quest 3)", level: 8, pct: 80 }
-          - { name: "关卡设计", level: 7, pct: 70 }
-          - { name: "Shader Graph", level: 6, pct: 60 }
-          - { name: "游戏商业化", level: 7, pct: 70 }
+          - { name: "Unity / C#", tag: "生产验证", desc: "代表作：《千禧迷雾》(Solo Unity 3D动作游戏项目)" }
+          - { name: "游戏AI (FSM)", tag: "实战验证", desc: "基于分层状态机 (HFSM) 实现敌人的高度智能巡逻与警戒" }
+          - { name: "VR / MR (Quest 3)", tag: "前沿探索", desc: "基于 Meta XR SDK 的虚实烹饪融合精确定位与调优" }
+          - { name: "关卡设计", tag: "实战验证", desc: "根据玩家热力图反馈实现自动避障与动态关卡障碍配置" }
+          - { name: "Shader Graph", tag: "前沿探索", desc: "独立实现次世代卡通渲染 (Toon Shader) 与粒子特效" }
+          - { name: "游戏商业化", tag: "实战验证", desc: "主导《炸弹盲射》Roblox 商业化独立游戏的上线与运营" }
       - title: "AI与开发"
         icon: "layers"
         color: "#00d4ff"
         skills:
-          - { name: "AI工作流 (MCP/Skills)", level: 9, pct: 90 }
-          - { name: "Python", level: 8, pct: 80 }
-          - { name: "Web前端", level: 7, pct: 70 }
-          - { name: "物联网 (ESP32/MQTT)", level: 8, pct: 80 }
-          - { name: "后端 (Java/API)", level: 7, pct: 70 }
-          - { name: "Docker / 云服务", level: 6, pct: 60 }
+          - { name: "AI工作流 (MCP/Skills)", tag: "生产验证", desc: "自主研发 MCP 核心服务，打通 LLM 代理与 Roblox Studio" }
+          - { name: "Python", tag: "实战验证", desc: "编写自动化数据抓取脚本、数据分析清洗与可视化流" }
+          - { name: "Web前端", tag: "实战验证", desc: "开发大屏可视化看板，运用 CSS/JS 打造极致动效界面" }
+          - { name: "物联网 (ESP32/MQTT)", tag: "实战验证", desc: "基于物理级微控制器采集传感器数据，实现实时 MQTT 双向同步" }
+          - { name: "后端 (Java/API)", tag: "实战验证", desc: "参与工业级 PDM 系统后端研发，优化高并发物料清单树算法" }
+          - { name: "Docker / 云服务", tag: "前沿探索", desc: "独立完成个人博客及前后端架构的 Docker 镜像打包与 CI/CD 部署" }
       - title: "人机交互 / UX"
         icon: "visibility"
         color: "#b43fff"
         skills:
-          - { name: "用户研究", level: 9, pct: 90 }
-          - { name: "SPSS / NVivo", level: 8, pct: 80 }
-          - { name: "数据可视化", level: 8, pct: 80 }
-          - { name: "混合现实", level: 8, pct: 80 }
-          - { name: "交互设计", level: 7, pct: 70 }
+          - { name: "用户研究", tag: "生产验证", desc: "在英国战锤总部主持多语言混合问卷调研与深度小组访谈" }
+          - { name: "SPSS / NVivo", tag: "实战验证", desc: "运用 SPSS 完成方差分析与信度检验，使用 NVivo 提炼三级主题编码" }
+          - { name: "数据可视化", tag: "实战验证", desc: "通过实证分析手段，将玩家痛点数据转化为高管决策报告" }
+          - { name: "混合现实", tag: "前沿探索", desc: "在实景中执行有声思维访谈与情境观察，逆向优化交互流程" }
+          - { name: "交互设计", tag: "实战验证", desc: "依据 HCI 研究框架设计用户界面，推动移动端流失率有效降低" }
     tools_title: "集成开发环境与工具"
     separator_text: "正在访问机密数据"
     separator_sub: "> 检测到个人子程序 > 加载业余协议..."

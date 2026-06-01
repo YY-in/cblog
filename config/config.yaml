@@ -141,31 +141,31 @@ pages:
         icon: "sports_esports"
         color: "#ff2d78"
         skills:
-          - { name: "Unity / C#", level: 9, pct: 90 }
-          - { name: "Game AI (FSM)", level: 8, pct: 80 }
-          - { name: "VR / MR (Quest 3)", level: 8, pct: 80 }
-          - { name: "Level Design", level: 7, pct: 70 }
-          - { name: "Shader Graph", level: 6, pct: 60 }
-          - { name: "Game Monetization", level: 7, pct: 70 }
+          - { name: "Unity / C#", tag: "PRODUCTION", desc: "Representative Work: 'Millennium Mist' (Solo Unity 3D Action Game project)" }
+          - { name: "Game AI (FSM)", tag: "VERIFIED", desc: "Implemented highly intelligent enemy patrolling and alert behaviors using Hierarchical Finite State Machines (HFSM)" }
+          - { name: "VR / MR (Quest 3)", tag: "EXPLORED", desc: "Precise physical-virtual cooking alignment and optimization based on Meta XR SDK" }
+          - { name: "Level Design", tag: "VERIFIED", desc: "Dynamic level obstacle placement and automatic pathfinding avoidance based on player heatmaps" }
+          - { name: "Shader Graph", tag: "EXPLORED", desc: "Independently implemented next-gen Toon Shaders and advanced particle special effects" }
+          - { name: "Game Monetization", tag: "VERIFIED", desc: "Led release and operation of 'Bomb Blind Shot' as a commercial Roblox indie game" }
       - title: "AI & DEV"
         icon: "layers"
         color: "#00d4ff"
         skills:
-          - { name: "AI Workflow (MCP/Skills)", level: 9, pct: 90 }
-          - { name: "Python", level: 8, pct: 80 }
-          - { name: "Web Frontend", level: 7, pct: 70 }
-          - { name: "IoT (ESP32/MQTT)", level: 8, pct: 80 }
-          - { name: "Backend (Java/API)", level: 7, pct: 70 }
-          - { name: "Docker / Cloud", level: 6, pct: 60 }
+          - { name: "AI Workflow (MCP/Skills)", tag: "PRODUCTION", desc: "Self-developed core MCP services to bridge LLM agents with Roblox Studio" }
+          - { name: "Python", tag: "VERIFIED", desc: "Wrote automated web scraping scripts, data analysis pipelines, and visualization flows" }
+          - { name: "Web Frontend", tag: "VERIFIED", desc: "Developed large-scale data visualization dashboards using CSS/JS for ultra-smooth UI animations" }
+          - { name: "IoT (ESP32/MQTT)", tag: "VERIFIED", desc: "Collected sensor data from physical microcontrollers with real-time MQTT bi-directional synchronization" }
+          - { name: "Backend (Java/API)", tag: "VERIFIED", desc: "Participated in enterprise-grade PDM backend R&D, optimizing high-concurrency BOM tree algorithms" }
+          - { name: "Docker / Cloud", tag: "EXPLORED", desc: "Independently packaged personal blog and full-stack architecture with Docker images & CI/CD pipeline" }
       - title: "HCI / UX"
         icon: "visibility"
         color: "#b43fff"
         skills:
-          - { name: "User Research", level: 9, pct: 90 }
-          - { name: "SPSS / NVivo", level: 8, pct: 80 }
-          - { name: "Data Visualization", level: 8, pct: 80 }
-          - { name: "Mixed Reality", level: 8, pct: 80 }
-          - { name: "Interaction Design", level: 7, pct: 70 }
+          - { name: "User Research", tag: "PRODUCTION", desc: "Led multilingual mixed questionnaire surveys and deep focus group interviews at Games Workshop UK Headquarters" }
+          - { name: "SPSS / NVivo", tag: "VERIFIED", desc: "Performed ANOVA and reliability testing with SPSS, extracted three-level thematic coding via NVivo" }
+          - { name: "Data Visualization", tag: "VERIFIED", desc: "Transformed player pain-point data into executive decision reports using empirical analysis methods" }
+          - { name: "Mixed Reality", tag: "EXPLORED", desc: "Conducted think-aloud interviews and contextual observation in real-world scenarios to optimize interaction design" }
+          - { name: "Interaction Design", tag: "VERIFIED", desc: "Designed user interfaces based on HCI research frameworks, effectively reducing mobile-user churn rates" }
     tools_title: "Integrated Development Environments & Tools"
     tools:
       - { icon: "terminal", label: "VS_CODE" }
