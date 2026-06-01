@@ -33,17 +33,31 @@ Rather than treating AI as a passive auto-complete coder, we designed it as an *
 
 ### 1. Custom Roblox MCP Server
 We implemented a local MCP (Model Context Protocol) pipe service enabling bi-directional communication between LLM agents (such as Claude Code) and Roblox Studio.
+
 * **One-Click Object & Scene Manipulation**: AI agents can directly read, create, and modify physical instances, particle emitter parameters, and hierarchy arrangements inside Roblox Studio.
 * **Luau Script Ingestion**: Through the MCP bridge, the AI automatically generates state machines, injects client-server synchronization code, and integrates telemetry instrumentation.
 
 ### 2. Full-Stack 2D Art Asset Generation
 Established a standardized generation and fine-tuning pipeline utilizing Midjourney and Stable Diffusion, enhancing art production efficiency by **40%**:
+
 * **In-Game UI & Special Effect Textures**: The complete suite of skill icons, item textures, and particle explosion sheets were synthesized by AI and automatically converted into seamless texture atlases.
 * **Storefront & Promotional Art**: High-converting storefront cover banners, lobby concept art, and badge/achievement icons were rendered by AI, color-corrected, and deployed directly.
+
+## Interaction & UI/UX Design (Figma to Roblox Pipeline)
+
+To optimize commercial conversion rates and ensure highly satisfying game UX, we designed and implemented a full suite of high-fidelity, high-engagement user interfaces in Figma, completely translated into Roblox's dynamic screen layouts:
+
+* **Tactile Wooden Beach-Pirate Theme (Visual Style)**: Employed high-quality, textured wood paneling, natural stone frames, vines, and rope borders to create a visually rich, engaging beach-pirate party atmosphere suited for a casual physical combat game.
+* **Multi-Dimensional Locker System (LockerGUI)**:
+    * **Category-Driven Customization**: Designed seamless tab switches for "Fx (Trails)", "Emotion (Emotes)", "Weapon (Bomb Skins)", and "Effect (Explosion FX)" with intuitive grid interactions for instant previewing.
+    * **Title & Badge Collection Matrix**: Created a gamified title collection with clean rarity tiering (Common, Rare, Epic, Legendary), locking indicators, and satisfying toggle switches to fuel player collection goals.
+* **Daily & Weekly Quest Interface (Quest System)**: Crafted a clipboard-themed Quest log utilizing dynamic progress gauges (e.g., 8/20, 40% completion state), visual gold Pirate Coin rewards, and prominent high-contrast "Claim" call-to-actions, establishing a strong daily retention loop.
+* **Immersive Skin Shop & Economy (Shop UI)**: Integrated clean monetization cards with glowing rarity-coded backgrounds (Green, Blue, Purple, Gold) and interactive gold coin displays, showcasing unlock states and stimulating microtransactions.
 
 ## Monetization & Live Operations
 
 As a fully self-sustained commercial indie game, we designed and implemented a comprehensive Roblox economic loop:
+
 * **Cosmetic Purchases & Personalization**: Including custom bomb skins, blind-shot trajectory trails, and player character outfits.
 * **Lobby Passports (Gamepasses)**: Providing VIP players with convenience perks, exclusive animation packages, and non-stat-altering features.
 * **Ultra-Low Live Ops Overhead**: The AI-assisted debugging, automated code refactoring, and CI/CD pipeline enabled our tiny team to deploy agile weekly content updates and maintain community engagement without any external outsourcing.
@@ -61,6 +75,7 @@ As a fully self-sustained commercial indie game, we designed and implemented a c
 ## Streamer & Community Buzz
 
 *Boom Bounce* has not only captured the hearts of competitive players but has also sparked a massive multiplayer craze in the international Roblox streamer community, showcasing excellent organic viral reach:
+
 * **International Influencer Gameplay Showcase**: Highly popular Indonesian Roblox gaming YouTuber **[JUST EZZA](https://www.youtube.com/@ZAMORAEZZA)** (with a million-level subscriber fanbase) featured the game in a massive multiplayer livestream (Watch the highlights at [Roblox Boom Bounce Indonesia Gameplay Stream](https://www.youtube.com/watch?v=sXT-AE-Y6SM&t=1478s)).
 * **Highly Entertaining & Viral Party Dynamics**: Within the dense blind spots and destructible physics arenas, streamers relied on intense psychological anticipation and spatial trajectory calculations to tactically predict and outsmart each other. The chaotic physical chain reactions and unpredictable collapses created incredible comedic tension and spectacular stream highlights, driving high community retention, fan UGC, and stellar reviews.
 
