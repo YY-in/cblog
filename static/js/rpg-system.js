@@ -159,7 +159,7 @@
     hud = document.createElement('div');
     hud.id = 'rpg-hud';
     hud.style.cssText = [
-      'position:fixed', 'top:80px', 'right:16px', 'z-index:100',
+      'position:fixed', 'bottom:20px', 'right:16px', 'z-index:100',
       'background:' + C.bgAlpha, 'border:1px solid ' + C.primary + '4d',
       'padding:6px 12px', 'cursor:pointer', 'user-select:none',
       'display:flex', 'align-items:center', 'gap:8px',
@@ -215,7 +215,7 @@
     popup = document.createElement('div');
     popup.id = 'rpg-popup';
     popup.style.cssText = [
-      'position:fixed', 'top:110px', 'right:16px', 'z-index:101',
+      'position:fixed', 'bottom:56px', 'right:16px', 'z-index:101',
       'background:' + C.bg, 'border:1px solid ' + C.primary + '4d',
       'padding:20px', 'display:none', 'min-width:260px', 'max-width:300px',
       'box-shadow:0 0 30px ' + C.primary + '1f',
