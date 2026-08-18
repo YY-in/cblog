@@ -5,3 +5,22 @@ import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from app import app
+
+class VercelPathMiddleware:
+    def __init__(self, wsgi_app):
+        self.wsgi_app = wsgi_app
+
+    def __call__(self, environ, start_response):
+        # Vercel 会通过 HTTP_X_FORWARDED_URI 传递原始请求路径（例如 /about?lang=zh）
+        forwarded_uri = environ.get('HTTP_X_FORWARDED_URI') or environ.get('HTTP_X_MATCHED_PATH')
+        if forwarded_uri:
+            # 剥离查询参数获取路径
+            path = forwarded_uri.split('?')[0]
+            environ['PATH_INFO'] = path
+        
+        # 确保 SCRIPT_NAME 为空，这样 url_for 等生成的链接是基于根目录的（例如 /static/...），而不是 /api/index.py/...
+        environ['SCRIPT_NAME'] = ''
+        return self.wsgi_app(environ, start_response)
+
+# 应用中间件
+app.wsgi_app = VercelPathMiddleware(app.wsgi_app)
