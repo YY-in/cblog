@@ -1,11 +1,7 @@
 {
   "functions": {
     "api/**/*.py": {
-      "includeFiles": [
-        "config/**",
-        "content/**",
-        "templates/**"
-      ]
+      "includeFiles": "{config,content,templates}/**"
     }
   },
   "rewrites": [
