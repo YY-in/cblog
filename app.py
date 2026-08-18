@@ -19,6 +19,32 @@ BASE_DIR = Path(__file__).resolve().parent
 app = Flask(__name__, static_folder="static", template_folder="templates")
 app.secret_key = os.environ.get("SECRET_KEY", "change-me-in-production")
 
+class VercelPathMiddleware:
+    def __init__(self, wsgi_app):
+        self.wsgi_app = wsgi_app
+
+    def __call__(self, environ, start_response):
+        # 1. 尝试从 Vercel 请求头中提取原始路径
+        forwarded_uri = environ.get('HTTP_X_FORWARDED_URI') or environ.get('HTTP_X_MATCHED_PATH')
+        if forwarded_uri:
+            path = forwarded_uri.split('?')[0]
+            environ['PATH_INFO'] = path
+        else:
+            # 2. 备用方案：剥离可能存在的文件名路径前缀（如 /app.py 或 /api/index.py）
+            path = environ.get('PATH_INFO', '')
+            for prefix in ['/api/index.py', '/api/index', '/app.py', '/app']:
+                if path.startswith(prefix):
+                    path = path[len(prefix):] or '/'
+                    environ['PATH_INFO'] = path
+                    break
+        
+        # 确保 SCRIPT_NAME 为空，使 url_for 生成正确的根相对链接
+        environ['SCRIPT_NAME'] = ''
+        return self.wsgi_app(environ, start_response)
+
+app.wsgi_app = VercelPathMiddleware(app.wsgi_app)
+
+
 
 # ---------------------------------------------------------------------------
 # Load YAML config
