@@ -24,6 +24,13 @@ class VercelPathMiddleware:
         self.wsgi_app = wsgi_app
 
     def __call__(self, environ, start_response):
+        # 包装 start_response，寻找包含 'projects' 的环境变量并输出为 header
+        def custom_start_response(status, headers, exc_info=None):
+            for k, v in environ.items():
+                if 'projects' in str(v):
+                    headers.append((f'X-Debug-Found-{k.replace("_", "-")}', str(v)[:100]))
+            return start_response(status, headers, exc_info)
+
         # 1. 尝试从 Vercel 请求头中提取原始路径
         forwarded_uri = environ.get('HTTP_X_FORWARDED_URI') or environ.get('HTTP_X_MATCHED_PATH')
         if forwarded_uri:
@@ -40,7 +47,7 @@ class VercelPathMiddleware:
         
         # 确保 SCRIPT_NAME 为空，使 url_for 生成正确的根相对链接
         environ['SCRIPT_NAME'] = ''
-        return self.wsgi_app(environ, start_response)
+        return self.wsgi_app(environ, custom_start_response)
 
 app.wsgi_app = VercelPathMiddleware(app.wsgi_app)
 
