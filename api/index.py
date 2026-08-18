@@ -11,6 +11,16 @@ class VercelPathMiddleware:
         self.wsgi_app = wsgi_app
 
     def __call__(self, environ, start_response):
+        # 调试拦截器：直接输出 WSGI 环境变量，绕过 Flask 路由
+        if environ.get('PATH_INFO') == '/api-debug-info':
+            status = '200 OK'
+            headers = [('Content-type', 'application/json; charset=utf-8')]
+            start_response(status, headers)
+            import json
+            # 过滤出可序列化的字符串值
+            debug_data = {k: str(v) for k, v in environ.items()}
+            return [json.dumps(debug_data, indent=2).encode('utf-8')]
+
         # Vercel 会通过 HTTP_X_FORWARDED_URI 传递原始请求路径（例如 /about?lang=zh）
         forwarded_uri = environ.get('HTTP_X_FORWARDED_URI') or environ.get('HTTP_X_MATCHED_PATH')
         if forwarded_uri:
