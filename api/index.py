@@ -11,13 +11,12 @@ class VercelPathMiddleware:
         self.wsgi_app = wsgi_app
 
     def __call__(self, environ, start_response):
-        # 调试拦截器：直接输出 WSGI 环境变量，绕过 Flask 路由
-        if environ.get('PATH_INFO') == '/api-debug-info':
+        # 调试拦截器：如果在 query string 中包含 debug，则直接输出 WSGI 环境变量
+        if 'debug' in environ.get('QUERY_STRING', ''):
             status = '200 OK'
-            headers = [('Content-type', 'application/json; charset=utf-8')]
+            headers = [('Content-Type', 'application/json; charset=utf-8')]
             start_response(status, headers)
             import json
-            # 过滤出可序列化的字符串值
             debug_data = {k: str(v) for k, v in environ.items()}
             return [json.dumps(debug_data, indent=2).encode('utf-8')]
 
