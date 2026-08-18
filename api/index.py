@@ -11,25 +11,13 @@ class VercelPathMiddleware:
         self.wsgi_app = wsgi_app
 
     def __call__(self, environ, start_response):
-        # 调试拦截器：如果在 query string 中包含 debug，则直接输出 WSGI 环境变量
-        if 'debug' in environ.get('QUERY_STRING', ''):
-            status = '200 OK'
-            headers = [('Content-Type', 'application/json; charset=utf-8')]
-            start_response(status, headers)
-            import json
-            debug_data = {k: str(v) for k, v in environ.items()}
-            return [json.dumps(debug_data, indent=2).encode('utf-8')]
-
-        # Vercel 会通过 HTTP_X_FORWARDED_URI 传递原始请求路径（例如 /about?lang=zh）
-        forwarded_uri = environ.get('HTTP_X_FORWARDED_URI') or environ.get('HTTP_X_MATCHED_PATH')
-        if forwarded_uri:
-            # 剥离查询参数获取路径
-            path = forwarded_uri.split('?')[0]
-            environ['PATH_INFO'] = path
-        
-        # 确保 SCRIPT_NAME 为空，这样 url_for 等生成的链接是基于根目录的（例如 /static/...），而不是 /api/index.py/...
-        environ['SCRIPT_NAME'] = ''
-        return self.wsgi_app(environ, start_response)
+        # 临时调试：无条件输出 WSGI 环境变量
+        status = '200 OK'
+        headers = [('Content-Type', 'application/json; charset=utf-8')]
+        start_response(status, headers)
+        import json
+        debug_data = {k: str(v) for k, v in environ.items()}
+        return [json.dumps(debug_data, indent=2).encode('utf-8')]
 
 # 应用中间件
 app.wsgi_app = VercelPathMiddleware(app.wsgi_app)
