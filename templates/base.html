@@ -1133,19 +1133,6 @@ if(sessionStorage.getItem('gate-transition')==='1'){
   </div>
 </div>
 
-<!-- FOOTER -->
-<footer class="fixed bottom-8 w-full z-40 flex justify-between items-center px-4 py-2 border-t border-[#00d4ff]/20 bg-[#131318]/90 backdrop-blur-md">
-  <div class="flex gap-6 font-label text-[10px] tracking-widest uppercase">
-    <span class="text-[#00d4ff]/60"><span data-p5r="{{ p5r.footer.admin }}">SYS.ADMIN // {{ cfg.owner.alias }}</span></span>
-  </div>
-  <div class="flex gap-4">
-    {% for link in cfg.footer_links %}
-    <a class="text-[#00d4ff]/60 hover:text-[#f5e642] hover:bg-[#00d4ff]/5 font-label text-[10px] tracking-widest uppercase transition-colors duration-200" href="{{ link.url }}">{{ link.label }}</a>
-    {% endfor %}
-  </div>
-  <div class="hidden md:block font-label text-[10px] text-[#00d4ff]">{{ cfg.site.version }}</div>
-</footer>
-
 <!-- BG CANVAS (Matrix rain) -->
 <script>
 (function(){
@@ -1160,13 +1147,14 @@ if(sessionStorage.getItem('gate-transition')==='1'){
     drops = new Array(Math.floor(canvas.width / fontSize)).fill(1);
   }
   function draw() {
-      var isLtBg = document.documentElement.classList.contains('light');
-      ctx.fillStyle = isLtBg ? "rgba(248, 245, 240, 0.05)" : "rgba(10, 10, 15, 0.05)";
+    var isLt = document.documentElement.classList.contains('light');
+    ctx.fillStyle = isLt ? "rgba(248, 245, 240, 0.05)" : "rgba(10, 10, 15, 0.05)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    ctx.font = fontSize + "px 'Share Tech Mono'"; // Set once per frame outside loop to prevent browser repaint/reflow lag
+    
     for (let i = 0; i < drops.length; i++) {
-      var isLt = document.documentElement.classList.contains('light');
       ctx.fillStyle = Math.random() > 0.5 ? (isLt ? "#d92323" : "#f5e642") : (isLt ? "#732424" : "#00d2fd");
-      ctx.font = fontSize + "px 'Share Tech Mono'";
       ctx.fillText(symbols[Math.floor(Math.random() * symbols.length)], i * fontSize, drops[i] * fontSize);
       if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
       drops[i]++;
@@ -1230,7 +1218,7 @@ if(sessionStorage.getItem('gate-transition')==='1'){
 
   function isMobile(){ return window.innerWidth < 768; }
   function headerH(){ return isMobile() ? 56 : 72; }
-  function footerH(){ return isMobile() ? 56 : 68; }
+  function footerH(){ return 0; }
   function offPos(){ return isMobile() ? '-110%' : '-70%'; }
   function gResize(){ gCanvas.width = window.innerWidth; gCanvas.height = window.innerHeight - headerH() - footerH(); }
   gResize(); window.addEventListener('resize', gResize);
