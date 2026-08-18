@@ -369,6 +369,18 @@ html.light .hero-image-panel img {
   filter: grayscale(0) !important;
 }
 
+/* Dark mode: grayscale applied instantly, transition only on hover */
+.hero-image-panel img {
+  transition: none !important;
+}
+.hero-image-panel:hover img {
+  transition: filter 0.5s ease !important;
+  filter: grayscale(0);
+}
+.hero-image-panel img:active {
+  filter: grayscale(0) !important;
+}
+
 /* Fluid Typography for Hero Section */
 .hero-title {
   font-size: clamp(2rem, 4.5vw + 0.5rem, 4.25rem) !important;
@@ -391,7 +403,7 @@ html.light .hero-image-panel img {
     <div class="hero-image-panel absolute right-0 top-0 bottom-0 w-[45%] sm:w-[50%] lg:w-[55%] h-full overflow-hidden bg-neutral-900 z-0">
       <div class="absolute inset-0 mix-blend-overlay opacity-40 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] z-10"></div>
       <div class="relative w-full h-full flex items-center justify-end">
-        <img alt="High-tech glitched portrait" class="w-full h-full object-cover grayscale transition-[filter] duration-500 hover:grayscale-0 active:grayscale-0 select-none cursor-pointer" src="{{ cfg.owner.avatar }}"/>
+        <img alt="High-tech glitched portrait" class="w-full h-full object-cover grayscale select-none cursor-pointer" src="{{ cfg.owner.avatar }}"/>
         <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-20"></div>
         <div class="absolute bottom-10 right-10 z-30">
           <div class="w-32 h-1 bg-[#f5e642] mb-2"></div>
