@@ -65,11 +65,17 @@
       var lines = container.querySelectorAll(".boot-line");
       if (!lines.length) return;
 
-      // Hide all lines initially and clear CSS animation overrides
+      // Lock container height to prevent layout shift during typing
+      if (container.offsetHeight > 0) {
+        container.style.minHeight = container.offsetHeight + "px";
+      }
+
+      // Hide line text initially but preserve line box height
       var i;
       for (i = 0; i < lines.length; i++) {
         lines[i].style.opacity = "0";
-        lines[i].style.width = "0";
+        lines[i].style.minHeight = "1.25rem";
+        lines[i].style.lineHeight = "1.25rem";
         lines[i].style.borderRightColor = "transparent";
         lines[i].style.animation = "none";
         lines[i].classList.remove("done");
@@ -84,7 +90,6 @@
         var fullText = line.textContent || line.innerText;
         line.textContent = "";
         line.style.opacity = "1";
-        line.style.width = "auto";
         line.style.borderRightColor =
           document.documentElement.classList.contains("light") ? "#d92323" : "#f5e642";
 
@@ -94,13 +99,13 @@
           if (charIndex < fullText.length) {
             line.textContent += fullText.charAt(charIndex);
             charIndex++;
-            setTimeout(typeChar, 150);
+            setTimeout(typeChar, 25);
           } else {
             // Line complete — remove cursor, advance
             line.classList.add("done");
             line.style.borderRightColor = "transparent";
             lineIndex++;
-            setTimeout(processNextLine, 400);
+            setTimeout(processNextLine, 120);
           }
         }
 

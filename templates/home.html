@@ -422,10 +422,10 @@ html.light .hero-image-panel img {
           {{ cfg.owner.bio }}
         </p>
       </div>
-      <div class="font-label text-[10px] space-y-1 mb-10 opacity-60" id="boot-log-container">
+      <div class="font-label text-[10px] space-y-1 mb-10 opacity-60 min-h-[5.5rem]" id="boot-log-container">
         {% set p5r_boot = p5r.pages.home.boot_lines %}
         {% for line in pg.boot_lines %}
-        <div class="boot-line {% if line.color %}text-[{{ line.color }}]{% else %}text-on-surface{% endif %}" style="--delay: {{ loop.index0 * 0.4 }}s"><span data-p5r="{{ p5r_boot[loop.index0] if loop.index0 < p5r_boot|length else line.text }}">{{ line.text }}</span></div>
+        <div class="boot-line min-h-[1.25rem] leading-5 whitespace-nowrap overflow-hidden {% if line.color %}text-[{{ line.color }}]{% else %}text-on-surface{% endif %}" style="--delay: {{ loop.index0 * 0.4 }}s"><span data-p5r="{{ p5r_boot[loop.index0] if loop.index0 < p5r_boot|length else line.text }}">{{ line.text }}</span></div>
         {% endfor %}
       </div>
       <div class="flex flex-wrap gap-4">
