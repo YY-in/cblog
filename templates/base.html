@@ -246,11 +246,11 @@ a, button { -webkit-tap-highlight-color: transparent; touch-action: manipulation
 /* ====== Floating Music Player ====== */
 .mp-btn{
   width:28px;height:28px;display:flex;align-items:center;justify-content:center;
-  color:#00d4ff99;transition:all .15s;
+  color:#f5e64299;transition:all .15s;
 }
 .mp-btn:hover{color:#f5e642;transform:scale(1.15);}
 .mp-vbar{
-  width:3px;background:#00d4ff;opacity:.25;
+  width:3px;background:#f5e642;opacity:.25;
   animation:mp-idle 1.8s ease-in-out infinite;
   border-radius:1px 1px 0 0;
 }
@@ -263,7 +263,7 @@ a, button { -webkit-tap-highlight-color: transparent; touch-action: manipulation
 }
 #mp-visualizer.active .mp-vbar{
   opacity:.7;animation:mp-active .6s ease-in-out infinite;
-  background:linear-gradient(to top,#00d4ff,#f5e642);
+  background:linear-gradient(to top,#f5e642,#f5e642cc);
 }
 #mp-visualizer.active .mp-vbar:nth-child(odd){animation-duration:.5s;animation-delay:-.15s}
 #mp-visualizer.active .mp-vbar:nth-child(3n){animation-duration:.7s;animation-delay:-.3s}
@@ -275,30 +275,30 @@ a, button { -webkit-tap-highlight-color: transparent; touch-action: manipulation
   display:flex;align-items:center;gap:8px;
   padding:6px 12px;cursor:pointer;
   font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:.1em;
-  color:#00d4ff99;border-bottom:1px solid rgba(0,212,255,.05);
+  color:#f5e64299;border-bottom:1px solid rgba(245,230,66,.05);
   transition:all .15s;
 }
-.mp-pl-item:hover{background:rgba(0,212,255,.05);color:#00d4ff}
-.mp-pl-item.active{color:#f5e642;background:rgba(245,230,66,.05)}
+.mp-pl-item:hover{background:rgba(245,230,66,.05);color:#f5e642}
+.mp-pl-item.active{color:#f5e642;background:rgba(245,230,66,.08)}
 .mp-pl-item .mp-pl-idx{width:16px;text-align:right;opacity:.4;font-size:9px}
 .mp-pl-item .mp-pl-name{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .mp-pl-item .mp-pl-art{opacity:.4;font-size:9px}
 
 /* Volume slider */
 .mp-range{
-  -webkit-appearance:none;appearance:none;height:3px;background:#00d4ff22;outline:none;
+  -webkit-appearance:none;appearance:none;height:3px;background:#f5e64222;outline:none;
   border-radius:0;cursor:pointer;
 }
 .mp-range::-webkit-slider-thumb{
-  -webkit-appearance:none;width:8px;height:8px;background:#00d4ff;border:none;cursor:pointer;
+  -webkit-appearance:none;width:8px;height:8px;background:#f5e642;border:none;cursor:pointer;
 }
 .mp-range::-moz-range-thumb{
-  width:8px;height:8px;background:#00d4ff;border:none;border-radius:0;cursor:pointer;
+  width:8px;height:8px;background:#f5e642;border:none;border-radius:0;cursor:pointer;
 }
 
 /* Mobile: adapt player sizing and position */
 @media(max-width:767px){
-  #music-player{right:16px!important;bottom:52px!important}
+  #music-player{right:16px!important;bottom:80px!important}
   #mp-panel{width:calc(100vw - 24px)!important;max-width:300px!important;right:0!important}
   #mp-toggle{width:40px!important;height:40px!important}
 }
@@ -1051,25 +1051,25 @@ if(sessionStorage.getItem('gate-transition')==='1'){
 <!-- ====== FLOATING MUSIC PLAYER ====== -->
 {% set mp = cfg.music_player %}
 <div id="music-player" class="fixed z-[55] transition-all duration-300"
-     style="bottom:52px;right:16px;">
+     style="bottom:80px;right:16px;">
   <!-- Minimized button -->
   <button id="mp-toggle"
-    class="w-12 h-12 bg-[#131318] border-2 border-[#00d4ff]/40 text-[#00d4ff] flex items-center justify-center hover:border-[#f5e642] hover:text-[#f5e642] transition-colors shadow-[0_0_20px_rgba(0,212,255,0.15)] backdrop-blur-md"
+    class="w-12 h-12 bg-[#131318] border border-[#f5e642]/30 text-[#f5e642] flex items-center justify-center hover:border-[#f5e642] hover:text-[#f5e642] transition-colors shadow-[0_0_20px_rgba(245,230,66,0.1)] backdrop-blur-md"
     style="clip-path:polygon(0 0,100% 0,100% 70%,70% 100%,0 100%);">
     <span class="material-symbols-outlined text-xl" id="mp-toggle-icon">headphones</span>
   </button>
 
   <!-- Expanded player panel -->
-  <div id="mp-panel" class="hidden absolute bottom-0 right-0 w-[320px] bg-[#0d0d12]/95 backdrop-blur-xl border-2 border-[#00d4ff]/30 shadow-[0_0_30px_rgba(0,212,255,0.1),inset_0_0_30px_rgba(0,0,0,0.5)]">
+  <div id="mp-panel" class="hidden absolute bottom-0 right-0 w-[320px] bg-[#0d0d12]/95 backdrop-blur-xl border border-[#f5e642]/30 shadow-[0_0_30px_rgba(245,230,66,0.1),inset_0_0_30px_rgba(0,0,0,0.5)]">
     <!-- Title bar -->
-    <div class="flex items-center justify-between px-3 py-2 bg-[#00d4ff]/10 border-b border-[#00d4ff]/20 cursor-default">
+    <div class="flex items-center justify-between px-3 py-2 bg-[#f5e642]/10 border-b border-[#f5e642]/20 cursor-default">
       <div class="flex items-center gap-2">
-        <span class="material-symbols-outlined text-[#00d4ff] text-sm">headphones</span>
-        <span class="font-label text-[10px] tracking-[0.2em] text-[#00d4ff]"><span data-p5r="{{ p5r.music_player.title }}">{{ mp.title }}</span></span>
-        <span class="w-2 h-2 rounded-full bg-[#00d4ff] animate-pulse" id="mp-status-dot"></span>
+        <span class="material-symbols-outlined text-[#f5e642] text-sm">headphones</span>
+        <span class="font-label text-[10px] tracking-[0.2em] text-[#f5e642]"><span data-p5r="{{ p5r.music_player.title }}">{{ mp.title }}</span></span>
+        <span class="w-2 h-2 rounded-full bg-[#f5e642] animate-pulse" id="mp-status-dot"></span>
       </div>
       <div class="flex items-center gap-1">
-        <button id="mp-minimize" class="text-[#00d4ff]/60 hover:text-[#f5e642] transition-colors p-1">
+        <button id="mp-minimize" class="text-[#f5e642]/60 hover:text-[#f5e642] transition-colors p-1">
           <span class="material-symbols-outlined text-sm">remove</span>
         </button>
       </div>
@@ -1090,16 +1090,16 @@ if(sessionStorage.getItem('gate-transition')==='1'){
     <!-- Track info -->
     <div class="px-3 pt-2">
       <div class="font-label text-sm text-[#f5e642] tracking-wider truncate" id="mp-track-title">—</div>
-      <div class="font-label text-[10px] text-[#00d4ff]/60 tracking-widest" id="mp-track-artist">—</div>
+      <div class="font-label text-[10px] text-[#f5e642]/60 tracking-widest" id="mp-track-artist">—</div>
     </div>
 
     <!-- Progress bar -->
     <div class="px-3 pt-3 pb-1">
-      <div class="relative h-[3px] bg-[#00d4ff]/10 cursor-pointer group" id="mp-progress-wrap">
-        <div class="absolute left-0 top-0 h-full bg-[#00d4ff] transition-none" id="mp-progress-fill" style="width:0%"></div>
+      <div class="relative h-[3px] bg-[#f5e642]/10 cursor-pointer group" id="mp-progress-wrap">
+        <div class="absolute left-0 top-0 h-full bg-[#f5e642] transition-none" id="mp-progress-fill" style="width:0%"></div>
         <div class="absolute top-1/2 -translate-y-1/2 w-2 h-2 bg-[#f5e642] opacity-0 group-hover:opacity-100 transition-opacity" id="mp-progress-thumb" style="left:0%"></div>
       </div>
-      <div class="flex justify-between font-label text-[9px] text-[#00d4ff]/40 mt-1">
+      <div class="flex justify-between font-label text-[9px] text-[#f5e642]/40 mt-1">
         <span id="mp-time-current">0:00</span>
         <span id="mp-time-total">0:00</span>
       </div>
@@ -1109,7 +1109,7 @@ if(sessionStorage.getItem('gate-transition')==='1'){
     <div class="flex items-center justify-between px-3 pb-3">
       <div class="flex items-center gap-1">
         <button id="mp-prev" class="mp-btn"><span class="material-symbols-outlined text-lg">skip_previous</span></button>
-        <button id="mp-play" class="w-10 h-10 flex items-center justify-center bg-[#00d4ff]/10 border border-[#00d4ff]/30 text-[#00d4ff] hover:bg-[#f5e642] hover:text-black hover:border-[#f5e642] transition-all" style="clip-path:polygon(0 0,100% 0,100% 70%,70% 100%,0 100%);">
+        <button id="mp-play" class="w-10 h-10 flex items-center justify-center bg-[#f5e642]/10 border border-[#f5e642]/30 text-[#f5e642] hover:bg-[#f5e642] hover:text-black hover:border-[#f5e642] transition-all" style="clip-path:polygon(0 0,100% 0,100% 70%,70% 100%,0 100%);">
           <span class="material-symbols-outlined text-xl" id="mp-play-icon">play_arrow</span>
         </button>
         <button id="mp-next" class="mp-btn"><span class="material-symbols-outlined text-lg">skip_next</span></button>
@@ -1122,13 +1122,13 @@ if(sessionStorage.getItem('gate-transition')==='1'){
     </div>
 
     <!-- Playlist -->
-    <div class="border-t border-[#00d4ff]/10 max-h-[120px] overflow-y-auto" id="mp-playlist">
+    <div class="border-t border-[#f5e642]/10 max-h-[120px] overflow-y-auto" id="mp-playlist">
     </div>
 
     <!-- Bottom decoration -->
-    <div class="px-3 py-1 border-t border-[#00d4ff]/10 flex justify-between">
-      <span class="font-label text-[8px] text-[#00d4ff]/30 tracking-widest">FREQ: 44.1kHz // 16-BIT</span>
-      <span class="font-label text-[8px] text-[#00d4ff]/30 tracking-widest" id="mp-track-count">0/0</span>
+    <div class="px-3 py-1 border-t border-[#f5e642]/10 flex justify-between">
+      <span class="font-label text-[8px] text-[#f5e642]/30 tracking-widest">FREQ: 44.1kHz // 16-BIT</span>
+      <span class="font-label text-[8px] text-[#f5e642]/30 tracking-widest" id="mp-track-count">0/0</span>
     </div>
   </div>
 </div>
