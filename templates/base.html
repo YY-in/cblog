@@ -298,7 +298,7 @@ a, button { -webkit-tap-highlight-color: transparent; touch-action: manipulation
 
 /* Mobile: adapt player sizing and position */
 @media(max-width:767px){
-  #music-player{right:16px!important;bottom:80px!important}
+  #music-player{right:16px!important;bottom:96px!important}
   #mp-panel{width:calc(100vw - 24px)!important;max-width:300px!important;right:0!important}
   #mp-toggle{width:40px!important;height:40px!important}
 }
@@ -1051,7 +1051,7 @@ if(sessionStorage.getItem('gate-transition')==='1'){
 <!-- ====== FLOATING MUSIC PLAYER ====== -->
 {% set mp = cfg.music_player %}
 <div id="music-player" class="fixed z-[55] transition-all duration-300"
-     style="bottom:80px;right:16px;">
+     style="bottom:96px;right:16px;">
   <!-- Minimized button -->
   <button id="mp-toggle"
     class="w-12 h-12 bg-[#131318] border border-[#f5e642]/30 text-[#f5e642] flex items-center justify-center hover:border-[#f5e642] hover:text-[#f5e642] transition-colors shadow-[0_0_20px_rgba(245,230,66,0.1)] backdrop-blur-md"
